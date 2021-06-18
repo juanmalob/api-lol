@@ -1,0 +1,93 @@
+<style>
+    .center-card {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+  
+  <div id='app' class="columns is-multiline is-centered">
+  
+    <!-- Room -->
+    <div class="column is-5-desktop is-12-mobile center-card">
+      <div class="card full-width">
+        <div class="card-content">
+          <h2 class="tag is-success is-size-4 has-text-weight-bold">Ascable-Recael Intranet</h2>
+  
+
+          <hr>
+          <div class="content">
+
+            <form @submit.prevent="send">
+
+
+                <div class="field">
+                    <label class="label">Correo electronico</label>
+                    <div class="control">
+                        <input v-model="email" class="input" type="email" placeholder="example@gmail.com">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Contraseña</label>
+                    <div class="control">
+                        <input v-model="password" class="input" type="password" placeholder="Tu contraseña">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-info">Enviar</button>
+                    </div>
+                </div>
+
+            </form>
+
+
+            </div>
+            <span>No tienes cuenta?</span>
+            <a href="/signup">Registrate</a>
+
+          </div>
+  
+          
+        </div>
+      </div>
+    </div>
+  
+   
+  
+  </div>
+
+  <script>
+  
+    const vue = new Vue({
+      el: '#app',
+      data () {
+        return {
+            password: '',
+            email: ''
+        }
+      },
+      methods: {
+        send () {
+            axios.post('/auth/login', {
+
+              email: this.email,
+              password: this.password
+            })
+            .then((res) => {
+              //console.log(res)
+              //req.session.userId = req.session.userId
+              localStorage.setItem('token',res.data.token)
+              window.location='/inicio'
+            })
+        }
+      }
+      
+    })
+  
+  </script>
+  
+  

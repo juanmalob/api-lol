@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ascable-Recael Intranet/Extranet</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/styles/importer.css">
+    <!--STYLES END-->
+    <!-- Axios permite hacer llamadas http en future-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Cargamos libreria de VUE -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  </head>
+
+  <body>
+
+  
+
+    <div class="columns is-mobile is-centered has-background-gray">
+      <div class="column is-10">
+        <%- body %>
+      </div>
+   </div>
+
+    
+
+
+    <!--SCRIPTS-->
+    <script src="/dependencies/sails.io.js"></script>
+    <!--SCRIPTS END-->
+  </body>
+</html>

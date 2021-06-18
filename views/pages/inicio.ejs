@@ -1,0 +1,48 @@
+<style>
+
+</style>
+  
+  <div id='app' class="columns is-multiline is-centered">
+  
+    <!-- Room -->
+    <div class="column is-5-desktop is-12-mobile center-card">
+      
+      <div class="control">
+        <input  v-model="user_id" class="input" type="text" placeholder="Descripción interesante">
+      </div>
+      
+    </div>
+    
+  </div>
+
+  <script>
+  
+  const vue = new Vue({
+      el: '#app',
+      data:  function () {
+        return {
+          user_id: '',
+          user_session: '' 
+        }
+      },
+      created () {
+        let element = document.getElementById('user-id')
+        this.user_id = element.innerHTML
+      },
+      methods: {
+        logout () {
+            console.log('Va o va')
+            axios.post('/auth/logout')
+            .then((res) => {
+              console.log('Va o no va 2')
+              //req.session.userId = req.session.userId
+              localStorage.setItem('token', null)
+              window.location='/'
+            })
+        }
+      }
+      
+    })
+  </script>
+  
+  
